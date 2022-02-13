@@ -1,12 +1,13 @@
 ﻿using System;
 using Blog.Screens.TagScreens;
+using Blog.Screens.UserScreens;
 using Microsoft.Data.SqlClient;
 
 namespace Blog
 {
     class Program
     {
-        private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$";
+        private const string CONNECTION_STRING = @"Server=localhost,1433;Encrypt=False;Database=Blog;User ID=sa;Password=1q2w3e4r@#$";
 
         static void Main(string[] args)
         {
@@ -19,7 +20,7 @@ namespace Blog
             Database.Connection.Close();
         }
 
-        private static void Load()
+        public static void Load()
         {
             Console.Clear();
             Console.WriteLine("Meu Blog");
@@ -39,6 +40,9 @@ namespace Blog
 
             switch (option)
             {
+                case 1:
+                    MenuUserScreen.Load();
+                    break;
                 case 4:
                     MenuTagScreen.Load();
                     break;
